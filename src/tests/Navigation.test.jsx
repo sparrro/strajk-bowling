@@ -16,7 +16,7 @@ describe("Navigation component", () => {
                 </Routes>
             </MemoryRouter>
         );
-        const navigateButton = screen.getAllByAltText("navigation icon");
+        const navigateButton = screen.getAllByRole("navigation");
         fireEvent.click(navigateButton[0]);
         const confirmationLink = screen.getAllByText("confirmation")[0];
         fireEvent.click(confirmationLink);
@@ -32,7 +32,7 @@ describe("Navigation component", () => {
                 </Routes>
             </MemoryRouter>
         );
-        const navigateButton = screen.getAllByAltText("navigation icon");
+        const navigateButton = screen.getAllByRole("navigation");
         fireEvent.click(navigateButton[0]);
         const bookingLink = screen.getAllByText("booking")[0];
         fireEvent.click(bookingLink);

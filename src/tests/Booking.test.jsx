@@ -33,7 +33,7 @@ describe("Booking view", () => {
         fireEvent.change(peopleField, {target: {value: "1"}});
         fireEvent.change(lanesField, {target: {value: "1"}});
         fireEvent.click(shoeBtn);
-        const shoeSizeField = screen.getAllByLabelText(/Shoe size/);
+        const shoeSizeField = screen.getAllByLabelText(/Shoe size \/ person/);
         fireEvent.change(shoeSizeField[0],{target: {value: "43"}});
         fireEvent.click(bookingBtn);
         await waitFor(() => {
@@ -54,7 +54,7 @@ describe("Booking view", () => {
         fireEvent.change(peopleField, {target: {value: "1"}});
         fireEvent.change(lanesField, {target: {value: "1"}});
         fireEvent.click(shoeBtn);
-        const shoeSizeField = screen.getAllByLabelText(/Shoe size/);
+        const shoeSizeField = screen.getAllByLabelText(/Shoe size \/ person/);
         fireEvent.change(shoeSizeField[0],{target: {value: "43"}});
         fireEvent.click(bookingBtn);
         expect(screen.getByText("Alla fälten måste vara ifyllda")).toBeInTheDocument();
@@ -65,7 +65,7 @@ describe("Booking view", () => {
         fireEvent.change(peopleField, {target: {value: "1"}});
         fireEvent.change(lanesField, {target: {value: "1"}});
         fireEvent.click(shoeBtn);
-        const shoeSizeField = screen.getAllByLabelText(/Shoe size/);
+        const shoeSizeField = screen.getAllByLabelText(/Shoe size \/ person/);
         fireEvent.change(shoeSizeField[0],{target: {value: "43"}});
         fireEvent.click(bookingBtn);
         expect(screen.getByText("Alla fälten måste vara ifyllda")).toBeInTheDocument();
@@ -76,7 +76,7 @@ describe("Booking view", () => {
         fireEvent.change(timeField, {target: {value: "00:01"}});
         fireEvent.change(lanesField, {target: {value: "1"}});
         fireEvent.click(shoeBtn);
-        const shoeSizeField = screen.getAllByLabelText(/Shoe size/);
+        const shoeSizeField = screen.getAllByLabelText(/Shoe size \/ person/);
         fireEvent.change(shoeSizeField[0],{target: {value: "43"}});
         fireEvent.click(bookingBtn);
         expect(screen.getByText("Alla fälten måste vara ifyllda")).toBeInTheDocument();
@@ -87,7 +87,7 @@ describe("Booking view", () => {
         fireEvent.change(timeField, {target: {value: "00:01"}});
         fireEvent.change(peopleField, {target: {value: "1"}});
         fireEvent.click(shoeBtn);
-        const shoeSizeField = screen.getAllByLabelText(/Shoe size/);
+        const shoeSizeField = screen.getAllByLabelText(/Shoe size \/ person/);
         fireEvent.change(shoeSizeField[0],{target: {value: "43"}});
         fireEvent.click(bookingBtn);
         expect(screen.getByText("Alla fälten måste vara ifyllda")).toBeInTheDocument();
@@ -100,7 +100,7 @@ describe("Booking view", () => {
         fireEvent.change(peopleField, {target: {value: "5"}})
         fireEvent.change(lanesField, {target: {value: "1"}});
         fireEvent.click(shoeBtn);
-        const shoeSizeField = screen.getAllByLabelText(/Shoe size/);
+        const shoeSizeField = screen.getAllByLabelText(/Shoe size \/ person/);
         shoeSizeField.forEach(field => {
             fireEvent(field, {target: {value: "44"}});
         });
@@ -127,7 +127,7 @@ describe("Booking view", () => {
         fireEvent.change(lanesField, {target: {value: "1"}});
         fireEvent.click(shoeBtn);
         fireEvent.click(shoeBtn);
-        const shoeSizeField = screen.getAllByLabelText(/Shoe size/);
+        const shoeSizeField = screen.getAllByLabelText(/Shoe size \/ person/);
         fireEvent.change(shoeSizeField[0], {target: {value: "43"}});
         fireEvent.change(shoeSizeField[1], {target: {value: "44"}});
         fireEvent.click(bookingBtn);

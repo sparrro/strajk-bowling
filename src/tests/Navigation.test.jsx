@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
-import Navigation from "../components/Navigation";
+import Navigation from "../components/Navigation/Navigation";
 import Booking from "../views/Booking";
 import Confirmation from "../views/Confirmation";
 

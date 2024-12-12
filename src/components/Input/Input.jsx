@@ -16,6 +16,7 @@ function Input({
       <input
         type={type}
         className={`input__field ${customClass ? customClass : ""}`}
+        id={name}
         name={name}
         onChange={handleChange}
         defaultValue={defaultValue ? defaultValue : ""}

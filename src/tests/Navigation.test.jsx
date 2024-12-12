@@ -18,7 +18,7 @@ describe("Navigation component", () => {
         );
         const navigateButton = screen.getAllByRole("navigation");
         fireEvent.click(navigateButton[0]);
-        const confirmationLink = screen.getAllByText("confirmation")[0];
+        const confirmationLink = screen.getAllByText("Confirmation")[0];
         fireEvent.click(confirmationLink);
         expect(screen.getByText("See you soon!")).toBeInTheDocument();
     });
@@ -34,7 +34,7 @@ describe("Navigation component", () => {
         );
         const navigateButton = screen.getAllByRole("navigation");
         fireEvent.click(navigateButton[0]);
-        const bookingLink = screen.getAllByText("booking")[0];
+        const bookingLink = screen.getAllByText("Booking")[0];
         fireEvent.click(bookingLink);
         expect(screen.getByText("When, WHAT & Who")).toBeInTheDocument();
     });

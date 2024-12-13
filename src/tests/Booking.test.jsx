@@ -102,13 +102,13 @@ describe("Booking view", () => {
         fireEvent.change(timeField, {target: {value: "00:01"}});
         fireEvent.change(peopleField, {target: {value: "5"}})
         fireEvent.change(lanesField, {target: {value: "1"}});
-        fireEvent.click(shoeBtn);
+        for (let i = 0; i<5; i++) {
+            fireEvent.click(shoeBtn);
+        }
         const shoeSizeField = screen.getAllByLabelText(/Shoe size \/ person/i, {hidden: true});
-        fireEvent.change(shoeSizeField[0], {target: {value: "43"}})
-        fireEvent.change(shoeSizeField[1], {target: {value: "43"}})
-        fireEvent.change(shoeSizeField[2], {target: {value: "43"}})
-        fireEvent.change(shoeSizeField[3], {target: {value: "43"}})
-        fireEvent.change(shoeSizeField[4], {target: {value: "43"}})
+        shoeSizeField.forEach(field => {
+            fireEvent(field, {target: {value: "44"}});
+        });
         fireEvent.click(bookingBtn);
         expect(screen.getByText("Det får max vara 4 spelare per bana")).toBeInTheDocument();
     })

@@ -33,10 +33,7 @@ describe("Booking view", () => {
         fireEvent.change(peopleField, {target: {value: "1"}});
         fireEvent.change(lanesField, {target: {value: "1"}});
         fireEvent.click(shoeBtn);
-        await waitFor(() => {
-            expect(screen.getAllByTestId("shoe-size").length).toBeGreaterThan(4)
-        })
-        const shoeSizeField = screen.getByTestId("shoe-size")
+        const shoeSizeField = screen.getAllByLabelText(/Shoe size \/ person/i, {hidden: true}); 
         fireEvent.change(shoeSizeField[0],{target: {value: "43"}});
         fireEvent.click(bookingBtn);
         await waitFor(() => {

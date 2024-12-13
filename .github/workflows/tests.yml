@@ -30,7 +30,7 @@ jobs:
           echo "No coverage report"
           exit 1
           fi
-          COVERAGE=$(cat ./coverage/coverage-summary.json | jq .total.lines.pct |sed 's/%//')
+          COVERAGE=$(cat ./coverage/coverage-summary.json | jq .total.lines.pct | sed 's/%//')
           echo "Coverage is ${COVERAGE}%"
           if (( $(echo "$COVERAGE < 75%" | bc -l) )); then
           echo "Test coverage below threshold, deployment aborted"

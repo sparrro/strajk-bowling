@@ -35,7 +35,7 @@ describe("Booking view", () => {
         fireEvent.click(shoeBtn);
         let shoeSizeField
         await waitFor(() => {
-            shoeSizeField = screen.getAllByLabelText(/Shoe size \/ person/i, {hidden: true});
+            shoeSizeField = screen.getAllByLabelText(/Shoe size \/ person/i);
         });
         fireEvent.change(shoeSizeField[0],{target: {value: "43"}});
         fireEvent.click(bookingBtn);

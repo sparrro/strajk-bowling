@@ -18,7 +18,7 @@ describe("Booking view", () => {
             <MemoryRouter>
                 <Booking />
             </MemoryRouter>
-        )
+        );
         dateField = screen.getByLabelText("Date");
         timeField = screen.getByLabelText("Time");
         peopleField = screen.getByLabelText("Number of awesome bowlers");
@@ -46,8 +46,11 @@ describe("Booking view", () => {
     });
 
     //ifall man inte fyller i något av fälten
-    it("should show an error when you try to book without filling in anything", () => {
+    it("should show an error when you try to book without filling in anything", async () => {
         fireEvent.click(bookingBtn);
+        await waitFor(() => {
+            expect(screen.getByText("Alla fälten måste vara ifyllda")).toBeInTheDocument();
+        })
         expect(screen.getByText("Alla fälten måste vara ifyllda")).toBeInTheDocument();
     });
 

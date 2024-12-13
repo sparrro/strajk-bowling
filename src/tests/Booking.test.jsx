@@ -106,9 +106,9 @@ describe("Booking view", () => {
             fireEvent.click(shoeBtn);
         }
         const shoeSizeField = screen.getAllByLabelText(/Shoe size \/ person/i, {hidden: true});
-        shoeSizeField.forEach(field => {
-            fireEvent(field, {target: {value: "44"}});
-        });
+        for (let i = 0; i<5; i++) {
+            fireEvent.change(shoeSizeField[i], {target: {value: "43"}})
+        }
         fireEvent.click(bookingBtn);
         expect(screen.getByText("Det får max vara 4 spelare per bana")).toBeInTheDocument();
     })

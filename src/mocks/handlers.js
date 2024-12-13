@@ -5,7 +5,7 @@ export const handlers = [
         const data = JSON.parse(sessionStorage.getItem("confirmation"));
         return HttpResponse.json(data);
     }),
-    http.post("https://h5jbtjv6if.execute-api.eu-north-1.amazonaws.com/confirmation", async ({request}) => {
+    http.post("https://h5jbtjv6if.execute-api.eu-north-1.amazonaws.com/", async ({request}) => {
         const body = await request.json();
         const {when, lanes, people, shoes} = body;
         const price = parseInt(people)*120+parseInt(lanes)*100;

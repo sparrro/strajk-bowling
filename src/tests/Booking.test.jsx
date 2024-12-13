@@ -33,6 +33,9 @@ describe("Booking view", () => {
         fireEvent.change(peopleField, {target: {value: "1"}});
         fireEvent.change(lanesField, {target: {value: "1"}});
         fireEvent.click(shoeBtn);
+        await waitFor(() => {
+            expect(screen.getAllByLabelText(/Shoe size \/ person/).length).toBeGreaterThan(0);
+        });
         const shoeSizeField = screen.getAllByLabelText(/Shoe size \/ person/);
         fireEvent.change(shoeSizeField[0],{target: {value: "43"}});
         fireEvent.click(bookingBtn);
@@ -49,44 +52,56 @@ describe("Booking view", () => {
     });
 
     //några ifall man hoppar över ett fält
-    it("should show an error when you skip some field", async () => {
+    it("should show an error when you skip the date", async () => {
         fireEvent.change(timeField, {target: {value: "00:01"}});
         fireEvent.change(peopleField, {target: {value: "1"}});
         fireEvent.change(lanesField, {target: {value: "1"}});
         fireEvent.click(shoeBtn);
+        await waitFor(() => {
+            expect(screen.getAllByLabelText(/Shoe size \/ person/).length).toBeGreaterThan(0);
+        });
         const shoeSizeField = screen.getAllByLabelText(/Shoe size \/ person/);
         fireEvent.change(shoeSizeField[0],{target: {value: "43"}});
         fireEvent.click(bookingBtn);
         expect(screen.getByText("Alla fälten måste vara ifyllda")).toBeInTheDocument();
     });
 
-    it("should show an error when you skip some field", async () => {
+    it("should show an error when you skip the time", async () => {
         fireEvent.change(dateField, {target: {value: "2025-01-01"}});
         fireEvent.change(peopleField, {target: {value: "1"}});
         fireEvent.change(lanesField, {target: {value: "1"}});
         fireEvent.click(shoeBtn);
+        await waitFor(() => {
+            expect(screen.getAllByLabelText(/Shoe size \/ person/).length).toBeGreaterThan(0);
+        });
         const shoeSizeField = screen.getAllByLabelText(/Shoe size \/ person/);
         fireEvent.change(shoeSizeField[0],{target: {value: "43"}});
         fireEvent.click(bookingBtn);
         expect(screen.getByText("Alla fälten måste vara ifyllda")).toBeInTheDocument();
     });
 
-    it("should show an error when you skip some field", async () => {
+    it("should show an error when you skip people", async () => {
         fireEvent.change(dateField, {target: {value: "2025-01-01"}});
         fireEvent.change(timeField, {target: {value: "00:01"}});
         fireEvent.change(lanesField, {target: {value: "1"}});
         fireEvent.click(shoeBtn);
+        await waitFor(() => {
+            expect(screen.getAllByLabelText(/Shoe size \/ person/).length).toBeGreaterThan(0);
+        });
         const shoeSizeField = screen.getAllByLabelText(/Shoe size \/ person/);
         fireEvent.change(shoeSizeField[0],{target: {value: "43"}});
         fireEvent.click(bookingBtn);
         expect(screen.getByText("Alla fälten måste vara ifyllda")).toBeInTheDocument();
     });
 
-    it("should show an error when you skip some field", async () => {
+    it("should show an error when you skip lanes", async () => {
         fireEvent.change(dateField, {target: {value: "2025-01-01"}});
         fireEvent.change(timeField, {target: {value: "00:01"}});
         fireEvent.change(peopleField, {target: {value: "1"}});
         fireEvent.click(shoeBtn);
+        await waitFor(() => {
+            expect(screen.getAllByLabelText(/Shoe size \/ person/).length).toBeGreaterThan(0);
+        });
         const shoeSizeField = screen.getAllByLabelText(/Shoe size \/ person/);
         fireEvent.change(shoeSizeField[0],{target: {value: "43"}});
         fireEvent.click(bookingBtn);
@@ -94,12 +109,15 @@ describe("Booking view", () => {
     });
 
     //ifall det inte finns tillräckligt med banor
-    it("should show an error when there aren't enough lanes", () => {
+    it("should show an error when there aren't enough lanes", async () => {
         fireEvent.change(dateField, {target: {value: "2025-01-01"}});
         fireEvent.change(timeField, {target: {value: "00:01"}});
         fireEvent.change(peopleField, {target: {value: "5"}})
         fireEvent.change(lanesField, {target: {value: "1"}});
         fireEvent.click(shoeBtn);
+        await waitFor(() => {
+            expect(screen.getAllByLabelText(/Shoe size \/ person/).length).toBeGreaterThan(0);
+        });
         const shoeSizeField = screen.getAllByLabelText(/Shoe size \/ person/);
         shoeSizeField.forEach(field => {
             fireEvent(field, {target: {value: "44"}});
@@ -127,6 +145,9 @@ describe("Booking view", () => {
         fireEvent.change(lanesField, {target: {value: "1"}});
         fireEvent.click(shoeBtn);
         fireEvent.click(shoeBtn);
+        await waitFor(() => {
+            expect(screen.getAllByLabelText(/Shoe size \/ person/).length).toBeGreaterThan(1);
+        });
         const shoeSizeField = screen.getAllByLabelText(/Shoe size \/ person/);
         fireEvent.change(shoeSizeField[0], {target: {value: "43"}});
         fireEvent.change(shoeSizeField[1], {target: {value: "44"}});

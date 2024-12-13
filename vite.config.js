@@ -10,7 +10,7 @@ export default defineConfig({
     setupFiles: "./src/setup.js",
     coverage: {
       provider: "v8",
-      reporter: ["text", "json", "json-summary"],
+      reporter: ["text", "json", "json-summary", "clover"],
       reportsDirectory: "./coverage",
       all: true,
       exclude: ["./src/main.jsx", "vite.config.js"],

@@ -23,17 +23,17 @@ describe("Booking view", () => {
         timeField = screen.getByLabelText("Time");
         peopleField = screen.getByLabelText("Number of awesome bowlers");
         lanesField = screen.getByLabelText("Number of lanes");
-        bookingBtn = screen.getByText("+");
-        shoeBtn = screen.getByText("strIIIIIike!");
+        shoeBtn = screen.getByText("+");
+        bookingBtn = screen.getByText("strIIIIIike!");
     });
 
     it("should complete a booking when you put correct inputs", async () => {
         fireEvent.change(dateField, {target: {value: "2025-01-01"}});
-        fireEvent.change(timeField, {target: {value: "00:01"}});
+        fireEvent.change(timeField, {target: {value: "01:01"}});
         fireEvent.change(peopleField, {target: {value: "1"}});
         fireEvent.change(lanesField, {target: {value: "1"}});
         fireEvent.click(shoeBtn);
-        const shoeSizeField = screen.getAllByLabelText(/Shoe size \/ person/i, {hidden: true}); 
+        const shoeSizeField = screen.getAllByLabelText(/Shoe size \/ person/i);
         fireEvent.change(shoeSizeField[0],{target: {value: "43"}});
         fireEvent.click(bookingBtn);
         await waitFor(() => {

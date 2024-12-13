@@ -37,8 +37,8 @@ describe("Booking view", () => {
         fireEvent.change(shoeSizeField[0],{target: {value: "43"}});
         expect(dateField).toHaveValue("2025-01-01");
         expect(timeField).toHaveValue("01:01");
-        expect(peopleField).toHaveValue("1");
-        expect(lanesField).toHaveValue("1");
+        expect(peopleField).toHaveValue(1);
+        expect(lanesField).toHaveValue(1);
         expect(shoeSizeField[0]).toHaveValue("43");
         fireEvent.click(bookingBtn);
         await waitFor(() => {

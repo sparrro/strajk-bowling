@@ -34,8 +34,9 @@ describe("Booking view", () => {
         fireEvent.change(lanesField, {target: {value: "1"}});
         fireEvent.click(shoeBtn);
         await waitFor(() => {
-            const shoeSizeField = screen.getByTestId("shoe-size")
+            expect(screen.getAllByTestId("shoe-size").length).toBeGreaterThan(4)
         })
+        const shoeSizeField = screen.getByTestId("shoe-size")
         fireEvent.change(shoeSizeField[0],{target: {value: "43"}});
         fireEvent.click(bookingBtn);
         await waitFor(() => {

@@ -14,6 +14,7 @@ function Input({
     <section className="input">
       <label className="input__label" htmlFor={name}>{label}</label>
       <input
+        data-testid="shoe-size"
         type={type}
         className={`input__field ${customClass ? customClass : ""}`}
         id={name}
